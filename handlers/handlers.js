@@ -1,24 +1,40 @@
-const { ticketCategories } = require('../config.json');
+const { permRoles, ticketCategories } = require('../config.json');
 
-async function handleButtons(interaction) {
-    let chanId = interaction.customId.split("-")[0];
-    let text = interaction.customId.split("-")[1];
+async function archiveChannel(channel, newName, everyone) {
 
-    let chan = interaction.guild.channels.fetch(chanId);
-    (await chan).edit({ parent: ticketCategories['archive'] });
-    (await chan).lockPermissions();
-
-    let oldName = (await chan).name;
-
-    (await chan).edit({
-        name: `${oldName}-${text}`,
+    (await channel).lockPermissions();
+    (await channel).edit({
+        name: newName,
+        parent: ticketCategories['archive'],
         permissionOverwrites: [
             {
-                id: interaction.guild.roles.everyone,
+                id: everyone,
                 deny: ["VIEW_CHANNEL"]
+            },
+            {
+                id: permRoles["owner"],
+                allow: ["VIEW_CHANNEL"]
+            },
+            {
+                id: permRoles["admin"],
+                allow: ["VIEW_CHANNEL"]
+            },
+            {
+                id: permRoles["moderator"],
+                allow: ["VIEW_CHANNEL"]
             }
         ]
-    } );
+    });
+}
+
+async function handleButtons(interaction) {
+
+    let chanId = interaction.customId.split("-")[0];
+    let text = interaction.customId.split("-")[1];
+    let chan = interaction.guild.channels.fetch(chanId);
+    let oldName = (await chan).name;
+    
+    await archiveChannel(chan, `${oldName}-${text}`, interaction.guild.roles.everyone);
 
     await interaction.reply("Ticket archived!");
 }

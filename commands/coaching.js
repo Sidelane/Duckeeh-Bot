@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton } = require('discord.js');
-const { ticketCategories } = require("../config.json");
+const { ticketCategories, permRoles } = require("../config.json");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -19,6 +19,18 @@ module.exports = {
 				},
 				{
 					id: interaction.user.id,
+					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["owner"],
+					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["admin"],
+					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["moderator"],
 					allow: ["VIEW_CHANNEL"]
 				}
 			]

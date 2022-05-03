@@ -20,6 +20,18 @@ module.exports = {
 				{
 					id: interaction.user.id,
 					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["owner"],
+					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["admin"],
+					allow: ["VIEW_CHANNEL"]
+				},
+				{
+					id: permRoles["moderator"],
+					allow: ["VIEW_CHANNEL"]
 				}
 			]
 		})
