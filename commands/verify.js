@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const config = require("../config.json");
+const { MessageActionRow, MessageButton } = require('discord.js');
+const { ticketCategories } = require("../config.json");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,7 +11,7 @@ module.exports = {
 
 		let chan = await interaction.guild.channels.create(channelName, {
 			type: "GUILD_TEXT",
-			parent: config['ticket-categories']['verify'],
+			parent: ticketCategories['verify'],
 			permissionOverwrites: [
 				{
 					id: interaction.guild.roles.everyone,

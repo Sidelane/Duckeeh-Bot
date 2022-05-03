@@ -1,11 +1,11 @@
-const config = require('../config.json');
+const { ticketCategories } = require('../config.json');
 
 async function handleButtons(interaction) {
     let chanId = interaction.customId.split("-")[0];
     let text = interaction.customId.split("-")[1];
 
     let chan = interaction.guild.channels.fetch(chanId);
-    (await chan).edit({ parent: config['ticket-categories']['archive'] });
+    (await chan).edit({ parent: ticketCategories['archive'] });
     (await chan).lockPermissions();
 
     let oldName = (await chan).name;

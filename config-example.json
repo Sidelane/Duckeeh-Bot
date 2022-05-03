@@ -1,13 +1,13 @@
 {
-    "discord-token": "discord-token",
-    "server-id": "server-id",
-    "app-id": "bot-app-id",
-    "ticket-categories": {
-        "coaching": "channel-id",
-        "verify": "channel-id",
-        "archive": "channel-id"
+    "token": "discord bot token",
+    "serverId": "server id",
+    "appId": "discord bot app id",
+    "ticketCategories": {
+        "coaching": "channel id",
+        "verify": "channel id",
+        "archive": "channel id"
     },
-    "perm-roles": {
+    "permRoles": {
         "owner": "id",
         "admin": "id",
         "mid": "id"
