@@ -11,5 +11,7 @@
         "owner": "id",
         "admin": "id",
         "mid": "id"
-    }
+    },
+    "rank-game-channel": "channel id",
+    "basePath": "dir path of the bot"
 }
