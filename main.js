@@ -1,8 +1,7 @@
 const fs = require('fs');
 const { Client, Intents, Collection } = require('discord.js');
 
-const handlers = require('./interactions/handlers');
-
+const handlers = require('./handlers/handlers');
 const { token } = require('./config.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
