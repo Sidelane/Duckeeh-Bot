@@ -1,3 +1,4 @@
+// client.onready() event
 module.exports = {
 	name: 'ready',
 	once: true,

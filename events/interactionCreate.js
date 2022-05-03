@@ -1,5 +1,6 @@
 const handlers = require('../handlers/handlers');
 
+// client.interactionCreate Event
 module.exports = {
 	name: 'interactionCreate',
 	once: false,
