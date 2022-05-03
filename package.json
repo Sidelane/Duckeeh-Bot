@@ -5,7 +5,9 @@
   "author": "sidelane",
   "license": "MIT",
   "scripts": {
-    "run": "node deploy-commands.js && node main.js"
+    "start": "node deploy-commands.js && node main.js",
+    "deploy": "node deploy-commands.js",
+    "run": "node main.js"
   },
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
